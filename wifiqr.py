@@ -27,7 +27,7 @@ ntarr=[]
 print("Select Wifi")
 for wifi in glob.glob('/etc/NetworkManager/system-connections/*'):
  ntarr.append(wifi)
- print(str(num) + ":" + wifi)
+ print(str(num) + ":" + wifi.replace("/etc/NetworkManager/system-connections/",""))
  num +=1
 wifino = int(input("Select Wifi: "))
 wifi = pyqrcode.create(getinfo(ntarr[wifino]))
