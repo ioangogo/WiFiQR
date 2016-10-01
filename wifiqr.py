@@ -3,13 +3,12 @@ import pyqrcode
 import glob
 import os
 import sys
-
-if not os.geteuid() == 0:
-    sys.exit('Script must be run as root')
+import subprocess
 
 config = configparser.ConfigParser()
 def getinfo(file):
- config.read(file)
+ os.system('gksudo cat ' + file + " > tmp.wifi")
+ config.read('tmp.wifi')
  name=config['wifi']['ssid']
  security="nopass"
  try:
@@ -33,3 +32,4 @@ wifino = int(input("Select Wifi: "))
 wifi = pyqrcode.create(getinfo(ntarr[wifino]))
 fn = input("Please Imput the Name for the file: ")
 wifi.svg(fn + ".svg")
+os.system('rm tmp.wifi')
