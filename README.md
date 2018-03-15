@@ -1,6 +1,8 @@
 # WiFiQR
 A Small python script to make Qr codes from network manager configuration Files
 
+**WARNING: i havent maintained this in a while**
+
 ## Instructions
 
 1. Run the script as root (At some point I will make it work with out that)
